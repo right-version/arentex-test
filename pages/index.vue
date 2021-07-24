@@ -58,14 +58,14 @@
             v-col(v-for="(product, index) in formatProducts" :key="'product-' + index" cols=4)
               CardProduct(
                 :id="product.id"
-                :photo="product.photo"
+                :photo="product.avatar"
                 :title="product.title"
                 :distributor="product.distributor"
                 :rating="4"
-                :price="product.price"
+                :prices="product.prices"
                 :min_hours="product.min_hours"
                 :min_minutes="product.min_minutes"
-                :amount="product.amount"
+                :amount="1"
                 :pledge="product.pledge"
               )
             p.ml-3(v-if="formatProducts.length === 0") Ничего не найдено 😢
@@ -83,13 +83,14 @@ export default {
     let dist = []
     let categories = []
     try {
-      products = await api.getProduct($axios)
-      dist = await api.getDistributors($axios)
-      categories = await api.getCategories($axios)
+      products = await api.getProducts($axios)
+      // dist = await api.getDistributors($axios)
+      // categories = await api.getCategories($axios)
     } catch (e) {
       console.error(e)
     }
-    return { products, dist, categories }
+    console.log(products)
+    return { products: products.array, dist, categories }
   },
   data() {
     return {

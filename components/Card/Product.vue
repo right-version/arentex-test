@@ -4,7 +4,7 @@
   v-hover(v-slot="{ hover }")
     v-card(flat tile :class="{'hover-card': hover, 'no-amount': !amount}" outlined)
       .image-wrap
-        v-img.image(v-if="photo" :src="'https://vktrpnzrv.fvds.ru' + photo" height="200px" :class="{hover}")
+        v-img.image(v-if="photo" :src="photoUrl" height="200px" :class="{hover}")
 
       v-card-title.title {{ title }}
       v-card-subtitle {{ distributor}}
@@ -31,7 +31,7 @@ export default {
     'title',
     'distributor',
     'rating',
-    'price',
+    'prices',
     'min_hours',
     'min_minutes',
     'pledge',
@@ -40,8 +40,11 @@ export default {
   computed: {
     formatedPrice() {
       const time = [this.min_hours, this.min_minutes].join(':')
-      return formatPrice(this.price, time)
+      return formatPrice(this.prices, time)
     },
+    photoUrl() {
+      return process.env.NUXT_ENV_MEDIA_URL + this.photo
+    }
   },
 }
 </script>
