@@ -67,5 +67,10 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+  env: {
+    NUXT_ENV_LOGIN: process.env.NUXT_ENV_LOGIN,
+    NUXT_ENV_PASSWORD: process.env.NUXT_ENV_PASSWORD,
+    NUXT_ENV_BASE_URL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000'
+  }
 }

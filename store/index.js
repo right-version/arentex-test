@@ -18,15 +18,12 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ commit }, { req, $axios }) {
-    const headers = req && req.headers
-    let user = null
+  async nuxtServerInit(_, { $axios }) {
+    const res = await $axios.post(`${process.env.NUXT_ENV_BASE_URL}/login`, {
+      login: process.env.NUXT_ENV_LOGIN,
+      password: process.env.NUXT_ENV_PASSWORD
+    })
 
-    try {
-      user = JSON.parse(cookie.get('xxx', headers.cookie))
-    } catch (error) {}
-    commit('setUser', user)
+    $axios.setToken(res.data.access_token, 'Bearer')
   }
 }
-
-// this.$store.commit('alert', { time: 2000, text: '+ 1' })
