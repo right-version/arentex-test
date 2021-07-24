@@ -1,0 +1,31 @@
+{
+  "name": "arentex-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@tiptap/extension-document": "^2.0.0-beta.12",
+    "@tiptap/extension-dropcursor": "^2.0.0-beta.13",
+    "@tiptap/extension-highlight": "^2.0.0-beta.13",
+    "@tiptap/extension-image": "^2.0.0-beta.13",
+    "@tiptap/extension-paragraph": "^2.0.0-beta.14",
+    "@tiptap/extension-text": "^2.0.0-beta.12",
+    "@tiptap/starter-kit": "^2.0.0-beta.59",
+    "@tiptap/vue-2": "^2.0.0-beta.29",
+    "@morioh/v-lightbox": "^1.0.3",
+    "@nuxtjs/auth-next": "5.0.0-1620773067.c356fed",
+    "@nuxtjs/axios": "^5.13.1",
+    "core-js": "^3.9.1",
+    "nuxt": "^2.15.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.3",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0"
+  }
+}
