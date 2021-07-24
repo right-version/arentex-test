@@ -1,1 +1,3 @@
-export const mainLinks = [{ title: 'События', to: '/events' }]
+export const mainLinks = [
+  // { title: 'События', to: '/events' }
+]

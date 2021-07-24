@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - yanao-rent',
-    title: 'yanao-rent',
+    titleTemplate: '%s - arentex-test',
+    title: 'arentex-test',
     htmlAttrs: {
       lang: 'en'
     },

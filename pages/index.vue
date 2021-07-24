@@ -1,29 +1,30 @@
 <template lang="pug">
   v-container
-    v-tabs(v-model="tabs")
-      v-tab Списком
-      v-tab На карте
+    //- v-tabs(v-model="tabs")
+    //-   v-tab Списком
+    //-   v-tab На карте
 
-      v-tab-item.mt-5.mb-5.ml-1
-        v-row
-          v-col(cols=3)
-            v-card.py-6.px-3(elevation=3 outlined)
-              v-select(
-                v-model="selectedDist"
-                :items="formatDist"
-                label="Выберите прокат"
-                outlined
-                item-text="title"
-                item-value="id"
-              )
-              v-select(
-                v-model="selectedCategory"
-                :items="formatCategories"
-                label="Выберите категорию"
-                outlined
-                item-text="name"
-                item-value="id"
-              )
+      //- v-tab-item
+    .mt-5.mb-5.ml-1
+      v-row
+        v-col(cols=3)
+          v-card.py-6.px-3(elevation=3 outlined)
+            v-select(
+              v-model="selectedDist"
+              :items="formatDist"
+              label="Выберите прокат"
+              outlined
+              item-text="title"
+              item-value="id"
+            )
+            v-select(
+              v-model="selectedCategory"
+              :items="formatCategories"
+              label="Выберите категорию"
+              outlined
+              item-text="name"
+              item-value="id"
+            )
 
               v-checkbox(
                 v-model="hasToday"
@@ -32,47 +33,45 @@
                 v-model="withoutPledge"
                 label="Без залога")
 
-
-
-          v-col(cols=9)
-            .d-flex.align-center.justify-space-between
-              v-text-field(
-                v-model="search"
-                solo
-                flat
-                placeholder="Поиск по объявлениям"
-                single-line
-                prepend-icon="mdi-magnify"
-                hide-details
+        v-col(cols=9)
+          .d-flex.align-center.justify-space-between
+            v-text-field(
+              v-model="search"
+              solo
+              flat
+              placeholder="Поиск по объявлениям"
+              single-line
+              prepend-icon="mdi-magnify"
+              hide-details
+            )
+            v-select(
+              v-model="selectedItem"
+              :items="items"
+              hide-details
+              prepend-icon="mdi-sort"
+              style="max-width: 250px;"
+              single-line
+              solo
+              flat)
+          v-divider
+          v-row.mt-4.align-center
+            v-col(v-for="(product, index) in formatProducts" :key="'product-' + index" cols=4)
+              CardProduct(
+                :id="product.id"
+                :photo="product.photo"
+                :title="product.title"
+                :distributor="product.distributor"
+                :rating="4"
+                :price="product.price"
+                :min_hours="product.min_hours"
+                :min_minutes="product.min_minutes"
+                :amount="product.amount"
+                :pledge="product.pledge"
               )
-              v-select(
-                v-model="selectedItem"
-                :items="items"
-                hide-details
-                prepend-icon="mdi-sort"
-                style="max-width: 250px;"
-                single-line
-                solo
-                flat)
-            v-divider
-            v-row.mt-4.align-center
-              v-col(v-for="(product, index) in formatProducts" :key="'product-' + index" cols=4)
-                CardProduct(
-                  :id="product.id"
-                  :photo="product.photo"
-                  :title="product.title"
-                  :distributor="product.distributor"
-                  :rating="4"
-                  :price="product.price"
-                  :min_hours="product.min_hours"
-                  :min_minutes="product.min_minutes"
-                  :amount="product.amount"
-                  :pledge="product.pledge"
-                )
-              p.ml-3(v-if="formatProducts.length === 0") Ничего не найдено 😢
+            p.ml-3(v-if="formatProducts.length === 0") Ничего не найдено 😢
 
-      v-tab-item.mt-5
-        GoogleMap(:dist="dist" @click="tabs = 0; selectedDist = $event")
+      //- v-tab-item.mt-5
+      //-   GoogleMap(:dist="dist" @click="tabs = 0; selectedDist = $event")
 
 </template>
 

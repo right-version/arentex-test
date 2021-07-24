@@ -1,11 +1,11 @@
 <template lang="pug">
   v-app-bar(flat app)
-    AuthModal.absoltely(v-if="modal"  @close="modal=false")
+    //- AuthModal.absoltely(v-if="modal"  @close="modal=false")
     v-app-bar-nav-icon.hidden-md-and-up(@click="$emit('clickBurger')")
     v-container.py-0.hidden-sm-and-down
       v-row.align-center.justify-space-between
         nuxt-link(to="/" nuxt)
-          h2.logo ЯНАО Шеринг
+          h2.logo ARENTEX
 
         .d-flex.align-center
           v-btn(
@@ -18,8 +18,8 @@
             text
           ) {{ link.title }}
 
-          v-btn.ml-2(icon @click="onClick")
-            v-icon(color="white" size="34") mdi-account-circle
+          //- v-btn.ml-2(icon @click="onClick")
+            //- v-icon(color="white" size="34") mdi-account-circle
 
 
 </template>
